@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Person</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        body {
+            background-color: lemonchiffon;
+            text-align: center;
+        }
+
+        #div1 {
+            background-color: burlywood;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: auto;
+            margin-top: auto;
+            width: 60%;
+            border: 5px solid brown;
+            padding: 10px;
+        }
+
+        table {
+            text-align: center;
+            width: 100%;
+        }
+
+        a {
+            color: brown;
+        }
+
+        input {
+            color: burlywood;
+            background-color: brown;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1">
+    <h2>Create new User</h2>
+    <form th:method="POST" th:action="@{/users}" th:object="${user}">
+        <label for="name">Enter name: </label>
+        <input type="text" th:field="*{name}" id="name" placeholder="Enter name"/>
+        <label for="age">Enter age: </label>
+        <input type="text" th:field="*{age}" id="age" placeholder="Enter age"/>
+        <label for="country">Enter country: </label>
+        <input type="text" th:field="*{country}" id="country" placeholder="Enter country"/>
+        </br>
+        <hr/>
+        <input type="submit" value="Create!"/>
+    </form>
+</div>
+</body>
+</html>

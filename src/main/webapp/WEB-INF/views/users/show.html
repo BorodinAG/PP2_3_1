@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<style>
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        body{
+            background-color: lemonchiffon;
+            text-align: center;
+        }
+        div{
+            background-color: burlywood;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: auto;
+            margin-top: auto;
+            width: 60%;
+            border: 5px solid brown;
+            padding: 10px;
+        }
+        table{
+            text-align: center;
+            width:100%;
+        }
+        #topTable{
+            background-color: brown;
+        }
+        #tableRemaining{
+            color:brown;
+        }
+        a{
+            color:brown;
+        }
+        #tableRemaining:hover{
+            background-color: chocolate;
+        }
+        input{
+            color:burlywood;
+            background-color: brown;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Update/Delete User</h1>
+</header>
+<main>
+<div>
+    <table border="1">
+        <tr id="topTable">
+            <th>Name</th>
+            <th>Age</th>
+            <th>Country</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr id="tableRemaining">
+            <td th:utext = ${user.getName()}>val</td>
+            <td th:utext = ${user.getAge()}>val</td>
+            <td th:utext = ${user.getCountry()}>val</td>
+            <td><a th:href="@{/users/{id}/edit(id=${user.getId()})}"> <input value="Edit"/></a></td>
+            <td><form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+                <input type="submit" value="Delete"/></td>
+        </tr>
+
+    </table>
+</div>
+</main>
+</body>
+</html>
